@@ -12,8 +12,8 @@ public abstract class Car {
 
     @Override
     public String toString(){
-        return "Car is located at (" + position.x + ", " + position.y + ") and is heading " + direction();
+        return "Car is located at (" + position.x + ", " + position.y + ") and is heading " + heading();
     }
 
-    protected abstract String direction();
+    protected abstract String heading();
 }

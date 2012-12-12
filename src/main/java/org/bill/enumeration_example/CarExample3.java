@@ -1,68 +1,66 @@
 package org.bill.enumeration_example;
 
 public class CarExample3 extends Car {
-    private Heading direction;
+    private Heading heading;
 
-    public CarExample3(Position2d position, CarExample3.Heading direction) {
+    public CarExample3(Position2d position, CarExample3.Heading heading) {
         super(position);
-        this.direction = direction;
+        this.heading = heading;
     }
 
     @Override
     public void moveForward() {
-        System.out.println("Car moves forward");
-        direction.moveForward(position);
+        heading.moveForward(position);
     }
 
     @Override
     public void turnRight() {
-        System.out.println("Car turns right");
-        direction = direction.turnRight();
+        heading = heading.turnRight();
     }
 
     @Override
-    protected String direction() {
-        return direction.toString();
+    protected String heading() {
+        return heading.toString();
     }
 
     public enum Heading {
-        NORTH {
+        North {
             public void moveForward(Position2d position) {
                 position.y++;
             }
             public Heading turnRight() {
-                return EAST;
+                return East;
             }
         },
-        SOUTH {
+        South {
             public void moveForward(Position2d position) {
                 position.y--;
             }
             public Heading turnRight() {
-                return WEST;
+                return West;
             }
         },
-        EAST {
+        East {
             public void moveForward(Position2d position) {
                 position.x++;
             }
             public Heading turnRight() {
-                return SOUTH;
+                return South;
             }
         },
-        WEST {
+        West {
             public void moveForward(Position2d position) {
                 position.x--;
 
             }
             public Heading turnRight() {
-                return NORTH;
+                return North;
             }
     };
 
-//        private Heading rightDirection;
-//        private Heading(Heading rightDirection){
-//            this.rightDirection = rightDirection;
+//        private Heading rightHeading;
+//        private Heading(Heading rightHeading){
+//            this.rightHeading = rightHeading;
 //        }
         public abstract void moveForward(Position2d position);
         public abstract Heading turnRight();

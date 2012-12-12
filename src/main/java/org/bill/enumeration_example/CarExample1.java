@@ -1,41 +1,39 @@
 package org.bill.enumeration_example;
 
 public class CarExample1 extends Car{
-    private String direction;
+    private String heading;
 
-    public CarExample1(Position2d position, String direction) {
+    public CarExample1(Position2d position, String heading) {
         super(position);
-        this.direction = direction;
+        this.heading = heading;
     }
 
     public void moveForward() {
-        System.out.println("Car moves forward");
-        if (direction.equals("North")){
+        if (heading.equals("North")){
             position.y++;
-        } else if (direction.equals("South")){
+        } else if (heading.equals("South")){
             position.y--;
-        } else if (direction.equals("East")){
+        } else if (heading.equals("East")){
             position.x++;
-        } else if (direction.equals("West")){
+        } else if (heading.equals("West")){
             position.x--;
         }
     }
 
     public void turnRight() {
-        System.out.println("Car turns right");
-        if (direction.equals("North")){
-            direction = "East";
-        } else if (direction.equals("South")){
-            direction = "West";
-        } else if (direction.equals("East")){
-            direction = "South";
-        } else if (direction.equals("West")){
-            direction = "North";
+        if (heading.equals("North")){
+            heading = "East";
+        } else if (heading.equals("South")){
+            heading = "West";
+        } else if (heading.equals("East")){
+            heading = "South";
+        } else if (heading.equals("West")){
+            heading = "North";
         }
     }
 
     @Override
-    protected String direction() {
-        return direction;
+    protected String heading() {
+        return heading;
     }
 }

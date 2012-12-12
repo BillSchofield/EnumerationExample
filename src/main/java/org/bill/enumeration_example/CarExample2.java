@@ -4,55 +4,53 @@ import static org.bill.enumeration_example.CarExample2.Heading.*;
 
 public class CarExample2 extends Car {
     public static enum Heading {
-        NORTH, SOUTH, EAST, WEST
+        North, South, East, West
     }
 
-    Heading direction;
+    Heading heading;
 
-    public CarExample2(Position2d position, Heading direction) {
+    public CarExample2(Position2d position, Heading heading) {
         super(position);
-        this.direction = direction;
+        this.heading = heading;
     }
 
     @Override
     public void moveForward() {
-        System.out.println("Car moves forward");
-        switch(direction){
-            case NORTH:
+        switch(heading){
+            case North:
                 position.y++;
                 break;
-            case SOUTH:
+            case South:
                 position.y--;
                 break;
-            case EAST:
+            case East:
                 position.x++;
                 break;
-            case WEST:
+            case West:
                 position.x--;
                 break;
         }
     }
 
     public void turnRight() {
-        System.out.println("Car turns right");
-        switch(direction){
-            case NORTH:
-                direction = EAST;
+        switch(heading){
+            case North:
+                heading = East;
                 break;
-            case SOUTH:
-                direction = WEST;
+            case South:
+                heading = West;
                 break;
-            case EAST:
-                direction = SOUTH;
+            case East:
+                heading = South;
                 break;
-            case WEST:
-                direction = NORTH;
+            case West:
+                heading = North;
                 break;
         }
     }
 
     @Override
-    protected String direction() {
-        return direction.toString();
+    protected String heading() {
+        return heading.toString();
     }
 }

@@ -1,28 +1,26 @@
 package org.bill.enumeration_example;
 
 public class CarExample4 extends Car {
-    private Heading direction;
+    private Heading heading;
 
-    public CarExample4(Position2d position, Heading direction) {
+    public CarExample4(Position2d position, Heading heading) {
         super(position);
-        this.direction = direction;
+        this.heading = heading;
     }
 
     @Override
     public void moveForward() {
-        System.out.println("Car moves forward");
-        direction.moveForward(position);
+        heading.moveForward(position);
     }
 
     @Override
     public void turnRight() {
-        System.out.println("Car turns right");
-        direction = direction.turnRight();
+        heading = heading.turnRight();
     }
 
     @Override
-    protected String direction() {
-        return direction.toString();
+    protected String heading() {
+        return heading.toString();
     }
 
     public interface Heading{
